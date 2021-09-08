@@ -2,6 +2,7 @@ package training;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.AssertJUnit;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -9,6 +10,7 @@ import org.testng.annotations.Test;
 
 public class FirstSeleniumJavaTest {
     private WebDriver driver;
+    private ChromeOptions options;
 
     @Test
     public void testEasy() {
@@ -22,7 +24,9 @@ public class FirstSeleniumJavaTest {
     @BeforeTest
     public void beforeTest() {
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver93");
-        driver = new ChromeDriver();
+        options = new ChromeOptions();
+        options.addArguments("headless");
+        driver = new ChromeDriver(options);
     }
 
     @AfterTest
