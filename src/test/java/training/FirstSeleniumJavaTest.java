@@ -3,20 +3,21 @@ package training;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.AssertJUnit;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import static org.testng.Assert.assertEquals;
 
 public class FirstSeleniumJavaTest {
     private WebDriver driver;
 
     @Test
     public void testEasy() {
-        driver.get("https://testautomationu.applitools.com/");
+        driver.get("https://the-internet.herokuapp.com/");
 
         String title = driver.getTitle();
-        AssertJUnit.assertEquals(title ,"Test Automation University | Applitools");
+        assertEquals(title, "The Internet");
     }
 
     @BeforeTest
